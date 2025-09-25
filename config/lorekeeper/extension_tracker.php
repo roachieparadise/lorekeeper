@@ -10,11 +10,9 @@ return [
     //         'Uri' => 'https://github.com/preimpression/',
     //     ]),
     //     'version' => '1.0.0',
-    // ],
-<<<<<<< HEAD
-=======
+    //
     
-<<<<<<< HEAD
+
     'alternate_site_designs' => [
         'key' => 'alternate_site_designs',
         'wiki_key' => 'Alternate Site Designs',
@@ -23,8 +21,7 @@ return [
         ]),
         'version' => '1.0.0', 
     ],
->>>>>>> 719b96905b051cb12d3c3911e71701a9361e5305
-=======
+
     'dailies' => [
         'key' => 'dailies',
         'wiki_key' => 'Dailies',
@@ -33,8 +30,6 @@ return [
         ]),
         'version' => '1.1.0', 
     ],
->>>>>>> 7e00eb7af066c902495f2d706c16740b6c8ff0b5
-
 
 
     'theme_manager' => [
