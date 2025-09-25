@@ -205,9 +205,11 @@
 
 <!-- Comments -->
 @if($submission->isVisible)
-    @comments(['model' => $submission,
-            'perPage' => 5
-        ])
+    <div class="container">
+        @comments(['model' => $submission,
+                'perPage' => 5
+            ])
+    </div>
 @endif
 
 @endsection
