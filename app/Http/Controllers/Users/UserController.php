@@ -47,7 +47,6 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        parent::__construct();
         $name = Route::current()->parameter('name');
         $this->user = User::where('name', $name)->first();
         if(!$this->user) abort(404);
