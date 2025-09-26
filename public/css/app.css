@@ -2990,6 +2990,7 @@ input[type="button"].btn-block {
 
 .nav-link {
   display: block;
+  font-size:20px;
   padding: 0.5rem 1rem; }
   .nav-link:hover, .nav-link:focus {
     text-decoration: none; }
@@ -3309,7 +3310,7 @@ input[type="button"].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #d1d1cd;
+  background-color: #2b2b2b;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem; }

@@ -5,12 +5,8 @@
 **************************************************************************************************/
 
 @font-face {
-    font-family: Roboto Condensed;
-    src: url(../webfonts/RobotoCondensed-Regular.ttf)
-}
-@font-face {
-    font-family: Lato;
-    src: url(../webfonts/Lato-Regular.ttf)
+    font-family: VC;
+    src: url("https://files.catbox.moe/gloq11.ttf");
 }
 
 /**************************************************************************************************
@@ -22,13 +18,14 @@
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
     text-transform: uppercase;
-    font-family: Roboto Condensed, serif; 
+    font-family: Garamond, serif;
     font-weight: bold;
+    color:white;
 }
 
 h1 a, h2 a, h3 a, h4 a, h5 a,
 a.h1, a.h2, a.h3, a.h4, a.h5 {
-    color: rgba(0,0,0,0.7);
+    color: #ffffff;
 }
 h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover,
 a.h1:hover, a.h2:hover, a.h3:hover, a.h4:hover, a.h5:hover {
@@ -37,18 +34,19 @@ a.h1:hover, a.h2:hover, a.h3:hover, a.h4:hover, a.h5:hover {
 }
 
 a {
-    color: rgba(0,0,0,0.7);
+    color: #c0ff68b3;
 }
 a:hover {
-    color: rgba(0,0,0,1);
+    color: #a5ff28b3;
     text-decoration: none;
 }
 
 body {
     background-color: transparent;
-    font-family: Lato, sans-serif; 
+    font-family: 'VC', monospace; 
     min-height: 100vh;
-    font-size: 80%;
+    font-size: 95%;
+    color:white;
 }
 
 /**************************************************************************************************
@@ -105,7 +103,7 @@ main > .row {
 
 .navbar .navbar-brand, .navbar .nav-item {
     text-transform: uppercase;
-    font-family: Roboto Condensed, serif; 
+    font-family: inherit; 
 }
 
 .navbar .row { width: 100%; }
@@ -136,7 +134,7 @@ main > .row {
 .sidebar .sidebar-header,
 .sidebar .sidebar-section .sidebar-section-header {
     text-transform: uppercase;
-    font-family: Roboto Condensed, serif; 
+    font-family: inherit; 
     font-weight: bold;
 }
 
@@ -159,7 +157,7 @@ main > .row {
 
 .sidebar a {
     text-transform: uppercase;
-    font-family: Roboto Condensed, serif;
+    font-family: inherit;
     color: rgba(0,0,0,0.4);
 }
 .sidebar a:hover {
@@ -317,7 +315,7 @@ main > .row {
 }
 .nav-tabs .nav-link {
     text-transform: uppercase;
-    font-family: Roboto Condensed, serif;
+    font-family: inherit;
 }
 
 .display-user, .display-character {
@@ -334,7 +332,7 @@ main > .row {
 .breadcrumb {
     background-color: transparent;
     padding: 0;
-    font-family: Roboto Condensed, serif;
+    font-family: inherit;
     text-transform: uppercase;
     align-items: center;
 }
@@ -387,7 +385,7 @@ main > .row {
     cursor: pointer;
     padding: .3rem 1.25rem;
     font-size: .9rem;
-    font-family: Roboto Condensed, serif;
+    font-family: inherit;
     color: inherit;
     text-transform: uppercase;
 }

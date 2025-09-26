@@ -79,19 +79,21 @@
 </head>
 <body>
     <div id="app">
-        <div class="site-header-image" id="header" style="background-image: url('{{ asset('images/header.png') }}');"></div>
+        
         @include('layouts._nav')
         @if ( View::hasSection('sidebar') )
 			<div class="site-mobile-header bg-secondary"><a href="#" class="btn btn-sm btn-outline-light" id="mobileMenuButton">Menu <i class="fas fa-caret-right ml-1"></i></a></div>
 		@endif
 
-        <main class="container-fluid">
-            <div class="row">
-
+        <main class="container-fluid" style="background-image: url('{{ asset('images/header.png') }}');">
+           
+        <div class="row">
+            
                 <div class="sidebar col-lg-2" id="sidebar">
                     @yield('sidebar')
                 </div>
-                <div class="main-content col-lg-8 p-4">
+                <div class="main-content col-lg-8 p-4 rounded-lg m-4 border border-dark" style="border-width: 3px !important" >
+                    @include('layouts._nav2')
                     <div>
                         @if(Auth::check() && !Config::get('lorekeeper.extensions.navbar_news_notif'))
                             @if(Auth::user()->is_news_unread)
