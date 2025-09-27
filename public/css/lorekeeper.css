@@ -91,7 +91,7 @@ main > .row {
 }
 
 .main-content {
-    background-color: white;
+    background-color: rgb(66, 66, 66);
     box-shadow: 0px 0px 6px 3px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
@@ -107,7 +107,7 @@ main > .row {
 
 .navbar .navbar-brand, .navbar .nav-item {
     text-transform: uppercase;
-    font-family: Roboto Condensed, serif; 
+    font-family: Roboto Condensed, serif;
 }
 
 .navbar .row { width: 100%; }
@@ -123,6 +123,7 @@ main > .row {
     list-style-type: none;
     display: inline-block;
     padding-top: 30px;
+    
 }
 
 .sidebar ul li {
@@ -131,7 +132,7 @@ main > .row {
     border-bottom-left-radius: .25rem;
     margin-bottom: 1em;
     padding: 0.4em 0;
-    
+    border: #003f38 solid 3px;
     box-shadow: 0px 0px 6px 3px rgba(0,0,0,0.1);
 }
 
@@ -143,7 +144,7 @@ main > .row {
 }
 
 .sidebar .sidebar-header {
-    background-color: #343a40;
+    background-color: #3e3e3e;
 }
 .sidebar .sidebar-header a {
     color: white;

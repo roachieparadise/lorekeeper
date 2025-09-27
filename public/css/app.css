@@ -17,7 +17,7 @@
   --teal: #20c997;
   --cyan: #17a2b8;
   --white: #fff;
-  --gray: #6c757d;
+  --gray: #3a3a3a;
   --gray-dark: #343a40;
   --primary: #3e78a8;
   --secondary: #623d99;
@@ -381,7 +381,7 @@ mark,
 .blockquote-footer {
   display: block;
   font-size: 80%;
-  color: #6c757d; }
+  color: #272727; }
   .blockquote-footer::before {
     content: "\2014\00A0"; }
 
@@ -3241,36 +3241,36 @@ input[type="button"].btn-block {
     display: none; }
 
 .navbar-light .navbar-brand {
-  color: rgba(0, 0, 0, 0.9); }
+  color: white; }
   .navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
-    color: rgba(0, 0, 0, 0.9); }
+    color: white; }
 
 .navbar-light .navbar-nav .nav-link {
-  color: rgba(0, 0, 0, 0.5); }
+  color: #003f38; }
   .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
-    color: rgba(0, 0, 0, 0.7); }
+    color: #003f38; }
   .navbar-light .navbar-nav .nav-link.disabled {
-    color: rgba(0, 0, 0, 0.3); }
+    color: #003f387a; }
 
 .navbar-light .navbar-nav .show > .nav-link,
 .navbar-light .navbar-nav .active > .nav-link,
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .nav-link.active {
-  color: rgba(0, 0, 0, 0.9); }
+  color: #003f38;}
 
 .navbar-light .navbar-toggler {
-  color: rgba(0, 0, 0, 0.5);
-  border-color: rgba(0, 0, 0, 0.1); }
+  color: #003f38;
+  border-color: #003f38; }
 
 .navbar-light .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); }
 
 .navbar-light .navbar-text {
-  color: rgba(0, 0, 0, 0.5); }
+  color: #003f38; }
   .navbar-light .navbar-text a {
-    color: rgba(0, 0, 0, 0.9); }
+    color: #003f38; }
     .navbar-light .navbar-text a:hover, .navbar-light .navbar-text a:focus {
-      color: rgba(0, 0, 0, 0.9); }
+      color: #003f38; }
 
 .navbar-dark .navbar-brand {
   color: #fff; }
@@ -3514,13 +3514,13 @@ input[type="button"].btn-block {
   margin-left: -1px;
   line-height: 1.25;
   color: #3e78a8;
-  background-color: #fff;
+  background-color: #232322;
   border: 1px solid #dee2e6; }
   .page-link:hover {
     z-index: 2;
     color: #295070;
     text-decoration: none;
-    background-color: #e9ecef;
+    background-color: #141414;
     border-color: #dee2e6; }
   .page-link:focus {
     z-index: 3;
@@ -4139,7 +4139,8 @@ a.close.disabled {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  outline: 0; }
+  outline: 0;
+  color:black; }
 
 .modal-dialog {
   position: relative;
@@ -4193,6 +4194,7 @@ a.close.disabled {
   flex-direction: column;
   width: 100%;
   pointer-events: auto;
+  color:black;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -4214,6 +4216,7 @@ a.close.disabled {
 
 .modal-header {
   display: flex;
+  color:black;
   align-items: flex-start;
   justify-content: space-between;
   padding: 1rem 1rem;

@@ -120,8 +120,9 @@
                 <div class="sidebar col-lg-2" id="sidebar">
                     @yield('sidebar')
                 </div>
-                <div class="main-content col-lg-8 p-4 rounded-lg m-4 border border-dark" style="border-width: 3px !important" >
+                <div class="main-content col-lg-8 rounded-1 m-4 p-0" style="border-width: 3px !important;border: 3px solid #003f38" >
                     @include('layouts._nav2')
+                    <div class="container-flex p-4">
                     <div>
                         @if(Auth::check() && !Config::get('lorekeeper.extensions.navbar_news_notif'))
                             @if(Auth::user()->is_news_unread)
@@ -134,7 +135,7 @@
                         @include('flash::message')
                         @yield('content')
                     </div>
-
+                    </div>
                     <div class="site-footer mt-4" id="footer">
                             @include('layouts._footer')
                     </div>

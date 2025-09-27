@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-success my-4 rounded border border-dark" style="border-width: 3px !important">
+<nav class="navbar navbar-expand-lg navbar-light bg-success rounded" style="border-width: 3px !important;border-bottom: 3px solid #003f38;">
   
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -38,6 +38,10 @@
                     <div class="dropdown-menu" aria-labelledby="loreDropdown">
                         <a class="dropdown-item" href="{{ url('world') }}">
                             Encyclopedia
+                        </a>
+                    <div class="dropdown-menu" aria-labelledby="loreDropdown">
+                        <a class="dropdown-item" href="{{ url('info/bugs') }}">
+                            Bugs
                         </a>
                         
                     </div>
