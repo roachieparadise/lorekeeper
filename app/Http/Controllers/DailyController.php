@@ -8,7 +8,7 @@ use \Datetime;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Services\DailyService;
+use App\Services\DailyManager;
 
 use App\Models\Daily\Daily;
 use App\Models\Daily\DailyTimer;
@@ -47,11 +47,11 @@ class DailyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function getDaily($id, DailyService $service)
+    public function getDaily($id, DailyManager $service)
     {
         $daily = Daily::where('id', $id)->where('is_active', 1)->first();
-        $timer = (Auth::user()) ? DailyTimer::where('daily_id', $daily->id)->where("user_id", Auth::user()->id)->first() : null;
         if(!$daily) abort(404);
+        $timer = (Auth::user()) ? DailyTimer::where('daily_id', $daily->id)->where("user_id", Auth::user()->id)->first() : null;
 
         
         
@@ -72,17 +72,26 @@ class DailyController extends Controller
      * @param  App\Services\DailyService  $service
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postRoll(Request $request, DailyService $service)
+    public function postRoll(Request $request, DailyManager $service)
     {
-        $daily = Daily::where('id', $request->daily_id)->where('is_active', 1)->first();
         $request->validate(DailyTimer::$createRules);
-        $rewards = $service->rollDaily($request->only(['daily_id']), Auth::user());
+        // Check that the daily exists and is open
+        $daily = Daily::where('id', $request['daily_id'])->where('is_active', 1)->first();
+        if (!$daily) throw new \Exception("Invalid " . __('dailies.daily') . " selected.");
+
+        
+        if($daily->type == 'Wheel'){
+            $wheelSegment = random_int(1, $daily->wheel->segment_number);
+            $rewards = $service->rollDaily($daily, Auth::user(), $wheelSegment);
+        } else {
+            $rewards = $service->rollDaily($daily, Auth::user());
+        }
 
         if(!$rewards) {
             foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
         } else {
             $rolledRewards = 0;
-            foreach($rewards as $type => $rewardList){
+            foreach($rewards as $rewardList){
                 foreach($rewardList as $reward){
                     $rolledRewards += 1;
                     flash('You received '.$reward['quantity'].'x '.$reward['asset']->name."!");
@@ -90,7 +99,12 @@ class DailyController extends Controller
             }
             if($rolledRewards <= 0) flash('You received nothing. Better luck next time!');
         }
-        return redirect()->back();
+
+        if(!$request->ajax()){
+            return redirect()->back();
+        } else {
+            return $wheelSegment;
+        }
 
     }
 
