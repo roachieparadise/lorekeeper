@@ -79,6 +79,14 @@ class Daily extends Model
         return $this->hasOne('App\Models\Daily\DailyWheel', 'daily_id');
     }
 
+    /**  
+     * get harvest (if it exists).
+      */
+    public function harvest()
+    {
+        return $this->hasOne('App\Models\Daily\DailyHarvest', 'daily_id');
+    }
+
     /**
      * Get currency (if it exists).
      */

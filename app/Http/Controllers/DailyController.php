@@ -97,6 +97,28 @@ class DailyController extends Controller
                     flash('You received '.$reward['quantity'].'x '.$reward['asset']->name."!");
                 }
             }
+
+            if($daily->type == 'Harvest'){
+                if($harvest){
+                    $service->rollDaily($harvest, Auth::user());
+                    flash('You harvested '.$harvest->harvest_amount.'x '.$harvest->item->name."!");
+                    } else {
+                    $rewards = $service->rollDaily($daily, Auth::user());
+                    }
+                    
+                    if(!$rewards) {
+                        foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
+                    } else {
+                        $rolledRewards = 0;
+                        foreach($rewards as $rewardList){
+                            foreach($rewardList as $reward){
+                                $rolledRewards += 1;
+                                flash('You received '.$reward['quantity'].'x '.$reward['asset']->name."!");
+                            }
+                        }
+                    }
+            }
+
             if($rolledRewards <= 0) flash('You received nothing. Better luck next time!');
         }
 

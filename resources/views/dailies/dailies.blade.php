@@ -27,6 +27,9 @@
 @if($daily->type == 'Button')
 @include('dailies._button_daily')
 @endif
+@if ($daily->type == 'Harvest')
+@include('dailies._harvest_daily')
+@endif
 
 
 

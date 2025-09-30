@@ -25,8 +25,8 @@ true]) !!}
     </div>
     @if(!$daily->id)
     <div class="form-group col">
-        {!! Form::label('type', 'Daily Type') !!} {!! add_help('Buttons are just one click to collect a reward. Wheels allow users to spin a wheel each day.') !!}
-        {!! Form::select('type', ["Button" => "Button", "Wheel" => "Wheel"] , $daily ? $daily->type : null, ['class' => 'form-control']) !!}
+        {!! Form::label('type', 'Daily Type') !!} {!! add_help('Buttons are just one click to collect a reward. Wheels allow users to spin a wheel each day. Harvest allows the user to visit locations where they can take more than 1 item ') !!}
+        {!! Form::select('type', ["Button" => "Button", "Wheel" => "Wheel", "Harvest" => "Harvest"] , $daily ? $daily->type : null, ['class' => 'form-control']) !!}
     </div>
     @endif
 </div>
@@ -54,6 +54,8 @@ true]) !!}
         @include('admin.dailies._create_edit_button_daily')
     @elseif($daily->type == 'Wheel')
         @include('admin.dailies._create_edit_wheel_daily', ['wheel' => $daily->wheel])
+    @elseif($daily->type == 'Harvest')
+        @include('admin.dailies._create_edit_harvest_daily', ['harvest' => $daily->harvest])
     @endif
 
 @endif

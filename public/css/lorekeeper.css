@@ -100,8 +100,9 @@ main > .row {
 /* Header */
 
 .site-header-image {
-    /*background-color: #eee;*/
-    background-repeat: repeat;
+    background-image: url("https://files.catbox.moe/9g7scn.png");
+    background-size: cover;
+    background-attachment: fixed;
     min-height: 200px;
 }
 
@@ -478,16 +479,17 @@ tr.outflow {
 }
 
 .character-bio .nav-tabs.card-header-tabs .active {
-    background-color: white;
+    background-color: rgb(0, 0, 0);
 }
 
 /* INVENTORY *************************************************************************************/
 
 .inventory-category .inventory-body .inventory-item img {
     max-width: 100%;
+    color:white;
 }
 .inventory-stack-name, .inventory-character-name {
-    color: rgba(0,0,0,0.7);
+    color: rgba(255, 255, 255, 0.7);
 }
 .inventory-stack-name:hover, .inventory-character-name:hover {
     color: inherit;

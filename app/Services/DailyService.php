@@ -12,6 +12,7 @@ use Illuminate\Support\Arr;
 use App\Models\Daily\Daily;
 use App\Models\Daily\DailyTimer;
 use App\Models\Daily\DailyWheel;
+use App\Models\Daily\DailyHarvest;
 use App\Models\Daily\DailyReward;
 use App\Models\Item\Item;
 use App\Models\Currency\Currency;
@@ -58,6 +59,10 @@ class DailyService extends Service
             if ($daily->type == 'Wheel') {
                 $this->populateWheel($data, $daily);
             }
+            if ($daily->type == 'Harvest') {
+                DailyHarvest::create($data + ['daily_id' => $daily->id]);
+                $this->populateHarvest($data, $daily);
+            }
 
             return $this->commitReturn($daily);
         } catch (\Exception $e) {
@@ -89,9 +94,12 @@ class DailyService extends Service
             if ($daily->type == 'Wheel') {
                 $wheel = $this->populateWheel($data, $daily);
             }
+            if ($daily->type == 'Harvest') {
+                $harvest = $this->populateHarvest($data, $daily);
+            }
 
             $data['is_timed_daily'] = isset($data['is_timed_daily']);
-            $data = $this->handleImages($data, $daily, $wheel);
+            $data = $this->handleImages($data, $daily, $wheel, $harvest);
             $daily->update($data);
             $this->populateRewards(Arr::only($data, ['rewardable_type', 'rewardable_id', 'quantity', 'step']), $daily);
 
@@ -168,6 +176,13 @@ class DailyService extends Service
             unset($data['remove_background']);
         }
 
+        if (isset($data['remove_harvest_image'])) {
+            if ($daily && isset($daily->harvest->harvest_extension) && $data['remove_harvest_image']) {
+                $this->deleteImage($daily->harvest->imagePath, $daily->harvest->harvestFileName);
+                $daily->harvest->harvest_extension = null;
+            }
+            unset($data['remove_harvest_image']);
+        }
 
         return $data;
     }
@@ -253,6 +268,31 @@ class DailyService extends Service
         }
     }
 
+    private function populateHarvest($data, $daily)
+    {
+        // 'daily_id', 'size', 'alignment', 'has_harvest_image', 'text_orientation', 'text_fontsize'
+        if ($daily->harvest) {
+            $daily->harvest->update([
+                'size' => $data['size'] ?? 400,
+                'alignment' => $data['alignment'] ?? 'center',
+                'has_harvest_image' => isset($data['has_harvest_image']) ? 1 : 0,
+                'text_orientation' => $data['text_orientation'] ?? 'curved',
+                'text_fontsize' => $data['text_fontsize'] ?? '18',
+            ]);
+            return $daily->harvest;
+        } else {
+            $harvest = DailyHarvest::create([
+                'daily_id'       => $daily->id,
+                'size' => $data['size'] ?? 400,
+                'alignment' => $data['alignment'] ?? 'center',
+                'has_harvest_image' => isset($data['has_harvest_image']) ? 1 : 0,
+                'text_orientation' => $data['text_orientation'] ?? 'curved',
+                'text_fontsize' => $data['text_fontsize'] ?? '18',
+            ]);
+            return $harvest;
+        }
+    }
+
     /**
      * Deletes a daily.
      *
@@ -266,7 +306,7 @@ class DailyService extends Service
         try {
 
             if ($daily->has_image) $this->deleteImage($daily->dailyImagePath, $daily->dailyImageFileName);
-            if ($daily->has_button_image) $this->deleteImage($daily->dailyImagePath, $daily->buttonyImageFileName);
+            if ($daily->has_button_image) $this->deleteImage($daily->dailyImagePath, $daily->buttonImageFileName);
 
             if ($daily->wheel) {
                 $wheel = $daily->wheel;
@@ -274,6 +314,11 @@ class DailyService extends Service
                 if ($wheel->stopper_extension) $this->deleteImage($wheel->imagePath, $wheel->stopperFileName);
                 if ($wheel->background_extension) $this->deleteImage($wheel->imagePath, $wheel->backgroundFileName);
                 $wheel->delete();
+            }
+            if ($daily->harvest) {
+                $harvest = $daily->harvest;
+                if ($harvest->harvest_extension) $this->deleteImage($harvest->imagePath, $harvest->harvestFileName);
+                $harvest->delete();
             }
 
             $daily->rewards()->delete();
@@ -313,7 +358,7 @@ class DailyService extends Service
     }
 
 
-    private function handleImages($data, $daily, $wheel)
+    private function handleImages($data, $daily, $wheel, $harvest)
     {
         $image = null;
         if (isset($data['image']) && $data['image']) {
@@ -367,6 +412,20 @@ class DailyService extends Service
             }
             $wheel->save();
         }
+        if ($daily->type == 'Harvest') {
+            $harvestImage = null;
+            if (isset($data['harvest_image']) && $data['harvest_image']) {
+                $harvestImage = $data['harvest_image'];
+                unset($data['harvest_image']);
+            }
+            if ($harvestImage) {
+                $daily->harvest->harvest_extension = $harvestImage->getClientOriginalExtension();
+                $this->handleImage($harvestImage, $daily->harvest->imagePath, $daily->harvest->harvestFileName, null);
+                $daily->harvest->has_harvest_image = 1;
+                $daily->harvest->save();
+            }
+        }
+
 
         return $data;
     }
