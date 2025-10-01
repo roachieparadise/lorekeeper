@@ -68,6 +68,14 @@ body {
     height: auto !important;
 }
 
+.display-item {
+    color:black;
+}
+
+.display-item:hover {
+    color:#003f38;
+}
+
 /**************************************************************************************************
     
     Layout
@@ -103,7 +111,6 @@ main > .row {
     background-image: url("https://files.catbox.moe/9g7scn.png");
     background-size: cover;
     background-attachment: fixed;
-    min-height: 200px;
 }
 
 .navbar .navbar-brand, .navbar .nav-item {
@@ -327,6 +334,8 @@ main > .row {
 .display-user, .display-character {
     font-weight: bold;
 }
+
+
 
 .help-icon {
     /*vertical-align: middle;*/
