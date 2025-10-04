@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-success rounded" style="border-width: 3px !important;border-bottom: 3px solid #003f38;">
+<nav class="navbar navbar-expand-lg navbar-light bg-success" style="border-width: 3px !important;border-bottom: 3px solid #00fb08ff;border-radius:35px 35px 0px 0px;background-color:#000000 !important">
   
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -39,7 +39,6 @@
                         <a class="dropdown-item" href="{{ url('world') }}">
                             Encyclopedia
                         </a>
-                    <div class="dropdown-menu" aria-labelledby="loreDropdown">
                         <a class="dropdown-item" href="{{ url('info/bugs') }}">
                             Bugs
                         </a>
@@ -60,6 +59,9 @@
                         </a>
                         <a class="dropdown-item" href="{{ url(__('dailies.dailies')) }}">
                         {{__('dailies.dailies')}}
+                        </a>
+                        <a class="dropdown-item" href="{{ url('encounter') }}">
+                            Encounters
                         </a>
                         
                     </div>

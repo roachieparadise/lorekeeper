@@ -117,16 +117,16 @@
 			<div class="site-mobile-header bg-secondary"><a href="#" class="btn btn-sm btn-outline-light" id="mobileMenuButton">Menu <i class="fas fa-caret-right ml-1"></i></a></div>
 		@endif
 
-        <main class="container-fluid" style="background-image: url('{{ asset('images/header.png') }}');">
+        <main class="container-fluid" style="background-image: url('{{ asset('images/header.png') }}');background-repeat: no-repeat;background-attachment: fixed;">
            
         <div class="row">
             
                 <div class="sidebar col-lg-2" id="sidebar">
                     @yield('sidebar')
                 </div>
-                <div class="main-content col-lg-8 rounded-1 m-4 p-0" style="border-width: 3px !important;border: 3px solid #003f38" >
+                <div class="main-content col-lg-8 m-4 p-0" style="border-width: 3px !important;border: 3px solid #00fb08ff;border-radius:40px" >
                     @include('layouts._nav2')
-                    <div class="container-flex p-4">
+                    <div class="container-flex rounded-lg p-4" style="border-radius:40px">
                     <div>
                         @if(Auth::check() && !Config::get('lorekeeper.extensions.navbar_news_notif'))
                             @if(Auth::user()->is_news_unread)
