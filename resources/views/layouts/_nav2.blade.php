@@ -42,6 +42,9 @@
                         <a class="dropdown-item" href="{{ url('info/bugs') }}">
                             Bugs
                         </a>
+                        <a class="dropdown-item" href="{{ url('world/info') }}">
+                            The World
+                        </a>
                         
                     </div>
                 </li>
