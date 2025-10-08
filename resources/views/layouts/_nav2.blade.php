@@ -70,8 +70,10 @@
                             Encounters
                         </a>
                         <a class="dropdown-item" href="{{ url('crafting') }}">
-                        Crafting
-                         </a>
+                                Crafting
+                            <a class="dropdown-item" href="{{ url('character-creator') }}">
+                               Character Creators
+                            </a>
                         
                     </div>
                 </li>

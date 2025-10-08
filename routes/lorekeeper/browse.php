@@ -97,6 +97,19 @@ Route::group(['prefix' => 'myo', 'namespace' => 'Characters'], function() {
     Route::get('{id}/ownership', 'MyoController@getCharacterOwnershipLogs');
     Route::get('{id}/change-log', 'MyoController@getCharacterLogs');
 });
+Route::group(['prefix' => 'character-creator', 'namespace' => 'Characters'], function() {
+    # playing around with colors, index etc
+    Route::get('', 'CharacterCreatorController@getIndex');
+    Route::get('choices', 'CharacterCreatorController@getChoices');
+    Route::get('{id}.{slug?}', 'CharacterCreatorController@getCharacterCreator');
+    Route::get('{id}.', 'CharacterCreatorController@getCharacterCreator');
+
+    # update look 
+    Route::post('{id}/image', 'CharacterCreatorController@getImage');
+    # create character
+    Route::get('{id}/create', 'CharacterCreatorController@getCreateCharacter');
+    Route::post('{id}/create', 'CharacterCreatorController@postCreateCharacter');
+});
 
 
 /**************************************************************************************************

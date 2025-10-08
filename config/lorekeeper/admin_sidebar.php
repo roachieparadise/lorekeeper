@@ -225,6 +225,10 @@ return [
                 'name' => 'Concepts',
                 'url' => 'admin/world/concepts'
             ],
+            [
+                'name' => 'Character Creators',
+                'url' => 'admin/data/creators'
+            ],
         ]
     ],
     'Raffles' => [
