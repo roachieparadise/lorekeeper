@@ -42,9 +42,11 @@
                         <a class="dropdown-item" href="{{ url('info/bugs') }}">
                             Bugs
                         </a>
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ url('world/info') }}">
                             The World
                         </a>
+                        <div class="dropdown-divider"></div>
                         
                     </div>
                 </li>
@@ -60,12 +62,16 @@
                         <a class="dropdown-item" href="{{ url('shops') }}">
                             Shops
                         </a>
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ url(__('dailies.dailies')) }}">
                         {{__('dailies.dailies')}}
                         </a>
                         <a class="dropdown-item" href="{{ url('encounter') }}">
                             Encounters
                         </a>
+                        <a class="dropdown-item" href="{{ url('crafting') }}">
+                        Crafting
+                         </a>
                         
                     </div>
                 </li>

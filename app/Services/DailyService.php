@@ -94,12 +94,10 @@ class DailyService extends Service
             if ($daily->type == 'Wheel') {
                 $wheel = $this->populateWheel($data, $daily);
             }
-            if ($daily->type == 'Harvest') {
-                $harvest = $this->populateHarvest($data, $daily);
-            }
+
 
             $data['is_timed_daily'] = isset($data['is_timed_daily']);
-            $data = $this->handleImages($data, $daily, $wheel, $harvest);
+            $data = $this->handleImages($data, $daily, $wheel);
             $daily->update($data);
             $this->populateRewards(Arr::only($data, ['rewardable_type', 'rewardable_id', 'quantity', 'step']), $daily);
 
@@ -280,16 +278,6 @@ class DailyService extends Service
                 'text_fontsize' => $data['text_fontsize'] ?? '18',
             ]);
             return $daily->harvest;
-        } else {
-            $harvest = DailyHarvest::create([
-                'daily_id'       => $daily->id,
-                'size' => $data['size'] ?? 400,
-                'alignment' => $data['alignment'] ?? 'center',
-                'has_harvest_image' => isset($data['has_harvest_image']) ? 1 : 0,
-                'text_orientation' => $data['text_orientation'] ?? 'curved',
-                'text_fontsize' => $data['text_fontsize'] ?? '18',
-            ]);
-            return $harvest;
         }
     }
 
@@ -314,11 +302,6 @@ class DailyService extends Service
                 if ($wheel->stopper_extension) $this->deleteImage($wheel->imagePath, $wheel->stopperFileName);
                 if ($wheel->background_extension) $this->deleteImage($wheel->imagePath, $wheel->backgroundFileName);
                 $wheel->delete();
-            }
-            if ($daily->harvest) {
-                $harvest = $daily->harvest;
-                if ($harvest->harvest_extension) $this->deleteImage($harvest->imagePath, $harvest->harvestFileName);
-                $harvest->delete();
             }
 
             $daily->rewards()->delete();
@@ -358,7 +341,7 @@ class DailyService extends Service
     }
 
 
-    private function handleImages($data, $daily, $wheel, $harvest)
+    private function handleImages($data, $daily, $wheel)
     {
         $image = null;
         if (isset($data['image']) && $data['image']) {

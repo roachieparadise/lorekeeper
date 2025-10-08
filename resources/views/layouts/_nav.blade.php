@@ -122,6 +122,24 @@
                     </li>
 
                     <li class="nav-item dropdown">
+                        <a id="browseDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            Account
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="browseDropdown">
+                            <a class="dropdown-item" href="{{ url('inventory') }}">
+                                Inventory
+                            </a>
+                            <a class="dropdown-item" href="{{ url('bank') }}">
+                                Bank
+                            </a>
+                            <a class="dropdown-item" href="{{ url('characters') }}">
+                                Characters
+                            </a>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ Auth::user()->url }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
