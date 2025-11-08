@@ -188,6 +188,10 @@ return [
                 'name' => 'Recipes',
                 'url' => 'admin/data/recipes'
             ],
+            [
+                'name' => 'Character Creators',
+                'url' => 'admin/data/creators'
+            ],
         ]
     ],
     'World_Expanded' => [
@@ -225,11 +229,8 @@ return [
                 'name' => 'Concepts',
                 'url' => 'admin/world/concepts'
             ],
-            [
-                'name' => 'Character Creators',
-                'url' => 'admin/data/creators'
-            ],
         ]
+        
     ],
     'Raffles' => [
         'power' => 'manage_raffles',

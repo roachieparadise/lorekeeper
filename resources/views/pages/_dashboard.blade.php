@@ -25,8 +25,8 @@
         <div class="row">
             <div class="col-sm">
             <span class="badge badge-pill badge-success my-3 p-2" style="height:40px;font-size:18px"> <a href="{{ url('info/guide') }}">Guides</a> </span>
-            <span class="badge badge-pill badge-success my-3 p-2" style="height:40px;font-size:18px"> Dollmaker </span>
-            <span class="badge badge-pill badge-success my-3 p-2" style="height:40px;font-size:18px"> Discord </span>
+            <span class="badge badge-pill badge-success my-3 p-2" style="height:40px;font-size:18px"> <a href="{{ url('character-creator') }}">Dollmaker </a></span>
+            <span class="badge badge-pill badge-success my-3 p-2" style="height:40px;font-size:18px"> <a href="https://discord.gg/wPkQt7WjgT">Discord</a> </span>
             </div>
             </div>
     </div>

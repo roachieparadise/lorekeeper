@@ -71,6 +71,8 @@
                         </a>
                         <a class="dropdown-item" href="{{ url('crafting') }}">
                                 Crafting
+                        </a>
+                        <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url('character-creator') }}">
                                Character Creators
                             </a>
