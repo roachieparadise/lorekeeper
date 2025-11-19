@@ -4,7 +4,7 @@
         <i class="far fa-clock"></i> {!! format_date(Carbon\Carbon::now()) !!}
     </span>
     <span class="badge badge-pill badge-success mb-3 p-2" style="height:40px;font-size:18px">
-        To-Do: <a href="{{ url('dailies') }}">Dailies</a>, <a href="{{ url('prompts/prompts') }}">Prompts</a>, <a href="{{ url('dailies/6') }}">Event</a>
+        To-Do: <a href="{{ url('dailies') }}">Dailies</a>, <a href="{{ url('prompts/prompts') }}">Prompts</a>, <a href="{{ url('dailies/4') }}">Event</a>
     </span>
     <h5 class="text-center">Profile</h5>
 <div class="row bg-dark p-4 mb-2" style="border-width: 3px !important;border: 3px solid #00fb08ff;border-radius:40px">
@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-sm">
             <span class="badge badge-pill badge-success my-3 p-2" style="height:40px;font-size:18px"> <a href="{{ url('info/guide') }}">Guides</a> </span>
-            <span class="badge badge-pill badge-success my-3 p-2" style="height:40px;font-size:18px"> <a href="{{ url('character-creator') }}">Dollmaker </a></span>
+            <span class="badge badge-pill badge-success my-3 p-2" style="height:40px;font-size:18px"> <a href="#wip">Dollmaker </a></span>
             <span class="badge badge-pill badge-success my-3 p-2" style="height:40px;font-size:18px"> <a href="https://discord.gg/wPkQt7WjgT">Discord</a> </span>
             </div>
             </div>

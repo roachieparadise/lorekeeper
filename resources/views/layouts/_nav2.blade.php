@@ -73,7 +73,7 @@
                                 Crafting
                         </a>
                         <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ url('character-creator') }}">
+                            <a class="dropdown-item" href="#">
                                Character Creators
                             </a>
                         

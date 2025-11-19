@@ -188,10 +188,6 @@ return [
                 'name' => 'Recipes',
                 'url' => 'admin/data/recipes'
             ],
-            [
-                'name' => 'Character Creators',
-                'url' => 'admin/data/creators'
-            ],
         ]
     ],
     'World_Expanded' => [
