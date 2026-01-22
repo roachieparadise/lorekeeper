@@ -33,19 +33,19 @@ public function index()
     {
         $eyes = ["regular eye", "no pupil eye"];
         $antennae = ["floppy antennae", "centipede antennae", "long antennae", "ant antennae"];
+        $keratin = ["curved horns", "devil horns", "no horns", "antlers"];
         $ears = ["wolf ears", "no ears"];
         $carapace = ["shiny membrane", "plated membrane", "smooth membrane"];
-        $body = ["short tail", "long tail"];
-        $pattern = ["dot pattern", "stripes pattern", "calico pattern"];
+        $body = ["short tail", "long tail", "medium tail", "bob tail"];
         $misc = ["facial hair", "thick eyebrows", "no misc traits"];
         
         $picked = [
             $eyes[array_rand($eyes)],
             $antennae[array_rand($antennae)],
+            $keratin[array_rand($keratin)],
             $ears[array_rand($ears)],
             $carapace[array_rand($carapace)],
             $body[array_rand($body)],
-            $pattern[array_rand($pattern)],
             $misc[array_rand($misc)]
         ];
         

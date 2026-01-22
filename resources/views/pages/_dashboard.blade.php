@@ -61,3 +61,5 @@
         
     </div>
 </div>
+
+@include('widgets._recent_gallery_submissions', ['gallerySubmissions' => $gallerySubmissions])
