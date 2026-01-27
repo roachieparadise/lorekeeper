@@ -66,8 +66,11 @@
                         <a class="dropdown-item" href="{{ url(__('dailies.dailies')) }}">
                         {{__('dailies.dailies')}}
                         </a>
-                        <a class="dropdown-item" href="{{ url('encounter') }}">
+                        <a class="dropdown-item" href="{{ url('encounter1') }}">
                             Encounters
+                        </a>
+                        <a class="dropdown-item" href="{{ url('encounter-areas') }}">
+                            Explore
                         </a>
                         <a class="dropdown-item" href="{{ url('crafting') }}">
                                 Crafting

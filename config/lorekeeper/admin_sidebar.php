@@ -117,6 +117,10 @@ return [
                 'url'  => 'admin/grants/items',
             ],
             [
+                'name' => 'Encounter Energy Grants',
+                'url' => 'admin/grants/encounter-energy'
+            ],
+            [
                 'name' => 'Recipe Grants',
                 'url' => 'admin/grants/recipes'
             ],
@@ -231,6 +235,14 @@ return [
                 'url' => 'admin/data/items'
             ],
             [
+                'name' => 'Encounters',
+                'url' => 'admin/data/encounters'
+            ],
+            [
+                'name' => 'Encounter Areas',
+                'url' => 'admin/data/encounters/areas'
+            ],
+            [
                 'name' => 'Pets',
                 'url'  => 'admin/data/pets',
             ],
@@ -280,8 +292,8 @@ return [
                 'url'  => 'admin/data/elements',
 
             ],
-            
         ],
+    ],
     'World_Expanded' => [
         'power' => 'manage_world',
         'links' => [
@@ -317,8 +329,7 @@ return [
                 'name' => 'Concepts',
                 'url' => 'admin/world/concepts'
             ],
-        ]
-        
+        ],
     ],
     'Raffles' => [
         'power' => 'manage_raffles',
@@ -329,33 +340,29 @@ return [
             ],
         ],
     ],
-    'Settings'   => [
-        'power' => 'edit_site_settings',
-        'links' => [
-            [
-                'name' => 'Site Settings',
-                'url'  => 'admin/settings',
-            ],
-            [
-                'name' => 'Site Images',
-                'url'  => 'admin/images',
-            ],
-            [
-                'name' => 'Site Design',
-                'url' => 'admin/design'
-            ],
-            [
-                'name' => 'Site Design',
-                'url' => 'admin/design'
-            ],
-            [
-                'name' => 'File Manager',
-                'url'  => 'admin/files',
-            ],
-            [
-                'name' => 'Log Viewer',
-                'url'  => 'admin/logs',
+        'Settings'   => [
+            'power' => 'edit_site_settings',
+            'links' => [
+                [
+                    'name' => 'Site Settings',
+                    'url'  => 'admin/settings',
+                ],
+                [
+                    'name' => 'Site Images',
+                    'url'  => 'admin/images',
+                ],
+                [
+                    'name' => 'Site Design',
+                    'url' => 'admin/design'
+                ],
+                [
+                    'name' => 'File Manager',
+                    'url'  => 'admin/files',
+                ],
+                [
+                    'name' => 'Log Viewer',
+                    'url'  => 'admin/logs',
+                ],
             ],
         ],
-    ],
-]];
+    ];

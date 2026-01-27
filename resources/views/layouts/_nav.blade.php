@@ -47,6 +47,9 @@
                             <a class="dropdown-item" href="{{ url('comments/liked') }}">
                                 Liked Comments
                             </a>
+                            <a class="dropdown-item" href="{{ url('encounter-areas') }}">
+                                Encounters
+                            </a>
                         </div>
 
                     </li>

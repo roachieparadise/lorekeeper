@@ -744,27 +744,14 @@ function fillCharacterAssets($assets, $sender, $recipient, $logType, $data, $sub
  * Creates a rewards string from an asset array.
  *
  * @param array $array
- * @param mixed $useDisplayName
- * @param mixed $absQuantities
  *
  * @return string
  */
-function createRewardsString($array, $useDisplayName = true, $absQuantities = false) {
+function createRewardsString($array) {
     $string = [];
     foreach ($array as $key => $contents) {
         foreach ($contents as $asset) {
-            if ($useDisplayName) {
-                if ($key == 'currencies') {
-                    $name = $asset['asset'] ? $asset['asset']->display(($absQuantities ? abs($asset['quantity']) : $asset['quantity'])) : 'Deleted '.ucfirst(str_replace('_', ' ', $key));
-                    $string[] = $asset['asset'] ? $name : $name.' x'.($absQuantities ? abs($asset['quantity']) : $asset['quantity']);
-                } else {
-                    $name = $asset['asset']->displayName ?? ($asset['asset']->name ?? 'Deleted '.ucfirst(str_replace('_', ' ', $key)));
-                    $string[] = $name.' x'.($absQuantities ? abs($asset['quantity']) : $asset['quantity']);
-                }
-            } else {
-                $name = $asset['asset']->name ?? 'Deleted '.ucfirst(str_replace('_', ' ', $key));
-                $string[] = $name.' x'.($absQuantities ? abs($asset['quantity']) : $asset['quantity']);
-            }
+            $string[] = $asset['asset']->displayName.' x'.$asset['quantity'];
         }
     }
     if (!count($string)) {

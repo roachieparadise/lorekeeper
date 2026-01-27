@@ -105,6 +105,8 @@ class AddSiteSettings extends Command {
 
         $this->addSiteSetting('allow_users_to_delete_profile_comments', 0, '0: Users cannot delete profile comments, 1: Users can delete profile comments.');
 
+        $this->addSiteSetting('encounter_energy', 5, 'Amount of energy for encounters a user should get each day. Resets daily.');
+
         $this->line("\nSite settings up to date!");
     }
 

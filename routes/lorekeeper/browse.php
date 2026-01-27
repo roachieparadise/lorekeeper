@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EncounterController;
+use App\Http\Controllers\EncounterController1;
 /*
 |--------------------------------------------------------------------------
 | Browse Routes
@@ -15,7 +15,7 @@ use App\Http\Controllers\EncounterController;
 /**************************************************************************************************
  * Encounters
  **************************************************************************************************/
-Route::get('/encounter', [EncounterController::class, 'generate'])->name('encounter.generate');
+Route::get('/encounter1', [EncounterController1::class, 'generate'])->name('encounter1.generate');
 
 /**************************************************************************************************
     Widgets

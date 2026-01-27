@@ -11,7 +11,7 @@ class UserSettings extends Model {
      * @var array
      */
     protected $fillable = [
-        'is_fto', 'submission_count', 'banned_at', 'ban_reason', 'birthday_setting',
+        'is_fto', 'submission_count', 'banned_at', 'ban_reason', 'birthday_setting','encounter_energy','encounter_character_id',
         'deactivate_reason', 'deactivated_at', 'content_warning_visibility', 'allow_profile_comments',
     ];
 
@@ -48,7 +48,16 @@ class UserSettings extends Model {
     /**
      * Get the user this set of settings belongs to.
      */
-    public function user() {
-        return $this->belongsTo(User::class);
+    public function user() 
+    {
+        return $this->belongsTo('App\Models\User\User');
+    }
+
+    /**
+     * Get the character the user selected for encounters
+     */
+    public function encounterCharacter()
+    {
+        return $this->belongsTo('App\Models\Character\Character');
     }
 }
